@@ -3,11 +3,11 @@ from swapi.types.api import APIObject
 class Film(APIObject):
     """Wrapper for the film object in the Star Wars API."
     
-    Represents a film in the Star Wars universe, denoted <Film - ID>.
+    Represents a film in the Star Wars universe, denoted <Film - Title - ID>.
     """
 
     def __repr__(self) -> str:
-        return f"<Film - {APIObject.getObjectID(self.data['url'])}>"
+        return f"<Film - {self.title} - {APIObject.getObjectID(self.data['url'])}>"
 
     @property
     def title(self) -> str: return self.data["title"]
