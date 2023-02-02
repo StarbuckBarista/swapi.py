@@ -1,4 +1,4 @@
-from swapi.types.api import APIObject
+from swapi.types.api import APIObject, TypePointer
 
 class Vehicle(APIObject):
     """Wrapper for the vehicle object in the Star Wars API."
@@ -43,7 +43,7 @@ class Vehicle(APIObject):
     def consumables(self) -> str: return self.data["consumables"]
 
     @property
-    def pilots(self) -> list[int]: return [APIObject.getTypePointer("Character", pilot) for pilot in self.data["pilots"]]
+    def pilots(self) -> list[TypePointer]: return [APIObject.getTypePointer("Character", pilot) for pilot in self.data["pilots"]]
 
     @property
-    def films(self) -> list[int]: return [APIObject.getTypePointer("Film", film) for film in self.data["films"]]
+    def films(self) -> list[TypePointer]: return [APIObject.getTypePointer("Film", film) for film in self.data["films"]]

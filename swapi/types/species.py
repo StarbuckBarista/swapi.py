@@ -1,4 +1,4 @@
-from swapi.types.api import APIObject
+from swapi.types.api import APIObject, TypePointer
 
 class Species(APIObject):
     """Wrapper for the species object in the Star Wars API."
@@ -34,13 +34,13 @@ class Species(APIObject):
     def average_lifespan(self) -> str: return self.data["average_lifespan"]
 
     @property
-    def homeworld(self) -> id: return APIObject.getTypePointer("Planet", self.data["homeworld"])
+    def homeworld(self) -> TypePointer: return APIObject.getTypePointer("Planet", self.data["homeworld"])
 
     @property
     def language(self) -> str: return self.data["language"]
 
     @property
-    def people(self) -> list[id]: return [APIObject.getTypePointer("Character", person) for person in self.data["people"]]
+    def people(self) -> list[TypePointer]: return [APIObject.getTypePointer("Character", person) for person in self.data["people"]]
 
     @property
-    def films(self) -> list[id]: return [APIObject.getTypePointer("Film", film) for film in self.data["films"]]
+    def films(self) -> list[TypePointer]: return [APIObject.getTypePointer("Film", film) for film in self.data["films"]]

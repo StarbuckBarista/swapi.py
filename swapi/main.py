@@ -65,30 +65,30 @@ def areRelated(objectOne: APIObject, objectTwo: APIObject) -> bool:
     filteredID = APIObject.getObjectID(objectTwo.data["url"])
 
     if isinstance(objectOne, Film):
-        if filteredID in objectOne.characters: related = True
-        if filteredID in objectOne.planets: related = True
-        if filteredID in objectOne.starships: related = True
-        if filteredID in objectOne.vehicles: related = True
-        if filteredID in objectOne.species: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.characters]: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.planets]: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.starships]: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.vehicles]: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.species]: related = True
     elif isinstance(objectOne, Character):
-        if filteredID in objectOne.films: related = True
-        if filteredID in objectOne.species: related = True
-        if filteredID in objectOne.starships: related = True
-        if filteredID in objectOne.vehicles: related = True
-        if filteredID is objectOne.homeworld: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.films]: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.species]: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.starships]: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.vehicles]: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.homeworld]: related = True
     elif isinstance(objectOne, Planet):
-        if filteredID in objectOne.films: related = True
-        if filteredID in objectOne.residents: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.films]: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.residents]: related = True
     elif isinstance(objectOne, Species):
-        if filteredID in objectOne.films: related = True
-        if filteredID in objectOne.people: related = True
-        if filteredID is objectOne.homeworld: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.films]: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.people]: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.homeworld]: related = True
     elif isinstance(objectOne, Vehicle):
-        if filteredID in objectOne.films: related = True
-        if filteredID in objectOne.pilots: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.films]: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.pilots]: related = True
     elif isinstance(objectOne, Starship):
-        if filteredID in objectOne.films: related = True
-        if filteredID in objectOne.pilots: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.films]: related = True
+        if filteredID in [APIObject.getObjectID(type_pointer.url) for type_pointer in objectOne.pilots]: related = True
     
     return related
 

@@ -58,15 +58,15 @@ class APIObject:
             InvalidFormat: The URL provided is not in the correct format.
         """
 
-        class TypePointer:
-            def __init__(self, type: str, url: str) -> None:
-                self.type = type
-                self.url = url
-
-            def __repr__(self) -> str:
-                return f"<Type Pointer - {self.type.title()} - {APIObject.getObjectID(self.url)}>"
-
-            def __call__(self) -> APIObject:
-                return APIObject(self.url)
-
         return TypePointer(type, url)
+
+class TypePointer:
+    def __init__(self, type: str, url: str) -> None:
+        self.type = type
+        self.url = url
+
+    def __repr__(self) -> str:
+        return f"<Type Pointer - {self.type.title()} - {APIObject.getObjectID(self.url)}>"
+
+    def __call__(self) -> APIObject:
+        return APIObject(self.url)
