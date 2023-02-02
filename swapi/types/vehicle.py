@@ -43,7 +43,7 @@ class Vehicle(APIObject):
     def consumables(self) -> str: return self.data["consumables"]
 
     @property
-    def pilots(self) -> list[int]: return [APIObject.getObjectID(pilot) for pilot in self.data["pilots"]]
+    def pilots(self) -> list[int]: return [APIObject.getTypePointer("Character", pilot) for pilot in self.data["pilots"]]
 
     @property
-    def films(self) -> list[int]: return [APIObject.getObjectID(film) for film in self.data["films"]]
+    def films(self) -> list[int]: return [APIObject.getTypePointer("Film", film) for film in self.data["films"]]

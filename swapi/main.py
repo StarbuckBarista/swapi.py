@@ -91,3 +91,17 @@ def areRelated(objectOne: APIObject, objectTwo: APIObject) -> bool:
         if filteredID in objectOne.pilots: related = True
     
     return related
+
+def castToType(type: APIObject, object: APIObject) -> APIObject:
+        """Returns an object of the specified type.
+
+        Arguments:
+            type: The type of object to return.
+            object: The object to cast to the specified type.
+        
+        Raises:
+            InvalidURL: The URL provided is not found in the Star Wars API.
+            InvalidFormat: The URL provided is not in the correct format.
+        """
+
+        return type(object.url)

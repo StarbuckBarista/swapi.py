@@ -28,16 +28,16 @@ class Film(APIObject):
     def release_date(self) -> str: return self.data["release_date"]
 
     @property
-    def characters(self) -> list[int]: return [APIObject.getObjectID(character) for character in self.data["characters"]]
+    def characters(self) -> list[int]: return [APIObject.getTypePointer("Character", character) for character in self.data["characters"]]
 
     @property
-    def planets(self) -> list[int]: return [APIObject.getObjectID(planet) for planet in self.data["planets"]]
+    def planets(self) -> list[int]: return [APIObject.getTypePointer("Planet", planet) for planet in self.data["planets"]]
 
     @property
-    def starships(self) -> list[int]: return [APIObject.getObjectID(starship) for starship in self.data["starships"]]
+    def starships(self) -> list[int]: return [APIObject.getTypePointer("Starship", starship) for starship in self.data["starships"]]
 
     @property
-    def vehicles(self) -> list[int]: return [APIObject.getObjectID(vehicle) for vehicle in self.data["vehicles"]]
+    def vehicles(self) -> list[int]: return [APIObject.getTypePointer("Vehicle", vehicle) for vehicle in self.data["vehicles"]]
 
     @property
-    def species(self) -> list[int]: return  [APIObject.getObjectID(species) for species in self.data["species"]]
+    def species(self) -> list[int]: return  [APIObject.getTypePointer("Species", species) for species in self.data["species"]]

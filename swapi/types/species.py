@@ -34,13 +34,13 @@ class Species(APIObject):
     def average_lifespan(self) -> str: return self.data["average_lifespan"]
 
     @property
-    def homeworld(self) -> id: return APIObject.getObjectID(self.data["homeworld"])
+    def homeworld(self) -> id: return APIObject.getTypePointer("Planet", self.data["homeworld"])
 
     @property
     def language(self) -> str: return self.data["language"]
 
     @property
-    def people(self) -> list[id]: return [APIObject.getObjectID(person) for person in self.data["people"]]
+    def people(self) -> list[id]: return [APIObject.getTypePointer("Character", person) for person in self.data["people"]]
 
     @property
-    def films(self) -> list[id]: return [APIObject.getObjectID(film) for film in self.data["films"]]
+    def films(self) -> list[id]: return [APIObject.getTypePointer("Film", film) for film in self.data["films"]]
